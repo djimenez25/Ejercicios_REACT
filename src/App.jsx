@@ -9,6 +9,7 @@ import { Ejercicio3 } from "./ejercicios/Ejercicio3";
 import { Temporizador } from "./ejercicios/Temporizador";
 import { Contador } from "./ejercicios/Contador";
 import { Formulario } from "./ejercicios/Formulario";
+import { Comentarios } from "./ejercicios/Comentarios";
 
 function App() {
   return (
@@ -47,6 +48,11 @@ function App() {
                 Formulario
               </Link>
             </li>
+            <li>
+              <Link to='/comentarios' className='text-decoration-none'>
+                Comentarios
+              </Link>
+            </li>
           </ul>
         </nav>
 
@@ -58,6 +64,7 @@ function App() {
             <Route path='/temporizador' element={<Temporizador />} />
             <Route path='/contador' element={<Contador />} />
             <Route path='/formulario' element={<Formulario />} />
+            <Route path='/comentarios' element={<Comentarios />} />
           </Routes>
         </main>
       </BrowserRouter>
