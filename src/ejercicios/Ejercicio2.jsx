@@ -46,25 +46,40 @@ export function Ejercicio2() {
 
   return (
     <>
-      <h1>Precio de alquiler</h1>
-      <div>
-        <select onChange={(e) => setOpcion(e.target.value)}>
-          <option>Seleciona una opcion</option>
-          <option value='coche'>Alquilar un coche</option>
-          <option value='piso'>Alquilar piso</option>
-          <option value='hotel'>Noches de hotel</option>
-        </select>
+      <div className='container mt-4 p-4 border rounded shadow-lg bg-light text-center'>
+        <h1 className='mb-4 text-primary'>🚗🏠🏨 Precio de Alquiler</h1>
+
+        {/* Selector */}
+        <div className='mb-3'>
+          <label className='form-label fw-bold'>Selecciona una opción:</label>
+          <select
+            className='form-select w-50 mx-auto'
+            onChange={(e) => setOpcion(e.target.value)}
+          >
+            <option>Selecciona una opción</option>
+            <option value='coche'>🚗 Alquilar un coche</option>
+            <option value='piso'>🏠 Alquilar un piso</option>
+            <option value='hotel'>🏨 Noches de hotel</option>
+          </select>
+        </div>
+
+        {/* Input de días */}
+        <div className='mb-3'>
+          <label className='form-label fw-bold'>Introduce los días:</label>
+          <input
+            value={dias}
+            onChange={(e) => setDias(e.target.value)}
+            type='number'
+            className='form-control w-50 mx-auto text-center'
+            placeholder='Número de días'
+          />
+        </div>
+
+        {/* Mostrar precio */}
+        <h5 className='mt-3 p-3 bg-success text-white rounded'>
+          💰 Precio total: {precio} €
+        </h5>
       </div>
-      <div>
-        <input
-          value={dias}
-          onChange={(e) => setDias(e.target.value)}
-          type='text'
-          style={{ width: "30%" }}
-          placeholder='Introduce los dias'
-        />
-      </div>
-      {<h5>{precio}</h5>}
     </>
   );
 }

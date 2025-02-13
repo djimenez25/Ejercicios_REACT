@@ -25,30 +25,69 @@ export function Ejercicio1() {
 
   return (
     <>
-      <h1>Galeria de imagenes</h1>
-      {imagenes.map((imagen, index) => (
-        <img style={{ width: "300px" }} key={index} src={imagen} />
-      ))}
-      <div>
-        <input
-          ref={txt_imagen}
-          style={{ width: "100%" }}
-          type='text'
-          placeholder='Introduce una imagen'
-        />
-        {error && <h5 style={{ color: "red" }}>{error}</h5>}
+      <div className='container mt-4 p-4 border rounded shadow-lg bg-light text-center'>
+        <h1 className='mb-4 text-primary'>🖼️ Galería de Imágenes</h1>
+
+        {/* Contenedor de imágenes en cuadrícula */}
+        <div className='row justify-content-center'>
+          {imagenes.map((imagen, index) => (
+            <div key={index} className='col-md-4 mb-3'>
+              <img
+                className='img-fluid rounded shadow'
+                src={imagen}
+                alt={`Imagen ${index}`}
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* Input para agregar imagen */}
+        <div className='mt-4'>
+          <input
+            ref={txt_imagen}
+            className='form-control w-50 mx-auto'
+            type='text'
+            placeholder='📷 Introduce una URL de imagen'
+          />
+          {error && <h5 className='text-danger mt-2'>{error}</h5>}
+        </div>
+
+        {/* Botón para agregar imagen */}
+        <button className='btn btn-primary mt-3' onClick={agregarImagen}>
+          ➕ Añadir imagen
+        </button>
+
+        <hr />
+
+        {/* Imagen en tamaño grande */}
+        <div className='mt-4'>
+          <img
+            className='img-fluid rounded shadow-lg'
+            src={imagenes[posicion]}
+            alt='Imagen seleccionada'
+          />
+        </div>
+
+        {/* Navegación entre imágenes */}
+        <div className='mt-3'>
+          {posicion !== 0 && (
+            <button
+              className='btn btn-secondary mx-2'
+              onClick={() => setPosicion(posicion - 1)}
+            >
+              ⬅️ Anterior
+            </button>
+          )}
+          {posicion !== imagenes.length - 1 && (
+            <button
+              className='btn btn-secondary mx-2'
+              onClick={() => setPosicion(posicion + 1)}
+            >
+              Siguiente ➡️
+            </button>
+          )}
+        </div>
       </div>
-      <button onClick={agregarImagen}>Añadir imagen</button>
-      <hr />
-      <div>
-        <img src={imagenes[posicion]} />
-      </div>
-      {posicion != 0 && (
-        <button onClick={() => setPosicion(posicion - 1)}>Anterior</button>
-      )}
-      {posicion != imagenes.length - 1 && (
-        <button onClick={() => setPosicion(posicion + 1)}>Siguiente</button>
-      )}
     </>
   );
 }

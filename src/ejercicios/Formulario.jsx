@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 
 export function Formulario() {
   const [nombre, setNombre] = useState("");
@@ -11,9 +12,22 @@ export function Formulario() {
     e.preventDefault();
 
     if (Object.keys(error).length === 0) {
-      alert("Enviado");
+      setNombre("");
+      setEmail("");
+      setPassword("");
+      Swal.fire({
+        icon: "success",
+        title: "Formulario enviado!",
+        text: "Tu formulario se ha publicado correctamente.",
+        confirmButtonColor: "#198754",
+      });
     } else {
-      alert("No enviado");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Error al enviar formulario",
+        confirmButtonColor: "#d33",
+      });
     }
   };
 
@@ -33,41 +47,57 @@ export function Formulario() {
 
   return (
     <>
-      <form onSubmit={enviarFormulario}>
+      <form
+        onSubmit={enviarFormulario}
+        className='container mt-4 p-4 border rounded shadow-lg bg-light'
+      >
+        <h2 className='text-center text-primary mb-4'>📝 Registro</h2>
+
         <div className='mb-3'>
-          <label className='form-label'>Nombre:</label>
+          <label className='form-label fw-bold'>Nombre:</label>
           <input
             type='text'
+            className={`form-control ${
+              error.nombre ? "is-invalid" : "is-valid"
+            }`}
             value={nombre}
-            className='form-control'
             onChange={(e) => setNombre(e.target.value)}
           />
-          {error.nombre && <p style={{ color: "red" }}>{error.nombre}</p>}
+          {error.nombre && (
+            <div className='invalid-feedback'>{error.nombre}</div>
+          )}
         </div>
 
         <div className='mb-3'>
-          <label className='form-label'>Email:</label>
+          <label className='form-label fw-bold'>Email:</label>
           <input
             type='email'
-            className='form-control'
+            className={`form-control ${
+              error.email ? "is-invalid" : "is-valid"
+            }`}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          {error.email && <p style={{ color: "red" }}>{error.email}</p>}
+          {error.email && <div className='invalid-feedback'>{error.email}</div>}
         </div>
 
         <div className='mb-3'>
-          <label className='form-label'>Password:</label>
+          <label className='form-label fw-bold'>Contraseña:</label>
           <input
             type='password'
-            className='form-control'
+            className={`form-control ${
+              error.password ? "is-invalid" : "is-valid"
+            }`}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          {error.password && <p style={{ color: "red" }}>{error.password}</p>}
+          {error.password && (
+            <div className='invalid-feedback'>{error.password}</div>
+          )}
         </div>
-
-        <button type='submit'>Enviar</button>
+        <button type='submit' className='btn btn-primary w-100'>
+          🚀 Enviar
+        </button>
       </form>
     </>
   );
