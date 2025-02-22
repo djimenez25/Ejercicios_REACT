@@ -10,6 +10,8 @@ import { Temporizador } from "./ejercicios/Temporizador";
 import { Contador } from "./ejercicios/Contador";
 import { Formulario } from "./ejercicios/Formulario";
 import { Comentarios } from "./ejercicios/Comentarios";
+import { Reducer1 } from "./ejercicios/Reducer1";
+import { Reducer2 } from "./ejercicios/Reducer2";
 
 function App() {
   return (
@@ -52,6 +54,16 @@ function App() {
               <Link to='/comentarios' className='text-decoration-none'>
                 Comentarios
               </Link>
+              <li>
+                <Link to='/reducer1' className='text-decoration-none'>
+                  Ejercicio-useReduce1
+                </Link>
+              </li>
+              <li>
+                <Link to='/reducer2' className='text-decoration-none'>
+                  Ejercicio-useReduce2
+                </Link>
+              </li>
             </li>
           </ul>
         </nav>
@@ -65,6 +77,8 @@ function App() {
             <Route path='/contador' element={<Contador />} />
             <Route path='/formulario' element={<Formulario />} />
             <Route path='/comentarios' element={<Comentarios />} />
+            <Route path='/reducer1' element={<Reducer1 />} />
+            <Route path='/reducer2' element={<Reducer2 />} />
           </Routes>
         </main>
       </BrowserRouter>
