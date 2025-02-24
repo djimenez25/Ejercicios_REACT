@@ -12,6 +12,9 @@ import { Formulario } from "./ejercicios/Formulario";
 import { Comentarios } from "./ejercicios/Comentarios";
 import { Reducer1 } from "./ejercicios/Reducer1";
 import { Reducer2 } from "./ejercicios/Reducer2";
+import { Reducer3 } from "./ejercicios/Reducer3";
+import { Reducer4 } from "./ejercicios/Reducer4";
+import { Reducer5 } from "./ejercicios/Reducer5";
 
 function App() {
   return (
@@ -54,16 +57,31 @@ function App() {
               <Link to='/comentarios' className='text-decoration-none'>
                 Comentarios
               </Link>
-              <li>
-                <Link to='/reducer1' className='text-decoration-none'>
-                  Ejercicio-useReduce1
-                </Link>
-              </li>
-              <li>
-                <Link to='/reducer2' className='text-decoration-none'>
-                  Ejercicio-useReduce2
-                </Link>
-              </li>
+            </li>
+            <li>
+              <Link to='/reducer1' className='text-decoration-none'>
+                Ejercicio-useReduce 1
+              </Link>
+            </li>
+            <li>
+              <Link to='/reducer2' className='text-decoration-none'>
+                Ejercicio-useReduce 2
+              </Link>
+            </li>
+            <li>
+              <Link to='/reducer3' className='text-decoration-none'>
+                Ejercicio-useReduce 3
+              </Link>
+            </li>
+            <li>
+              <Link to='/reducer4' className='text-decoration-none'>
+                Ejercicio-useReduce 4
+              </Link>
+            </li>
+            <li>
+              <Link to='/reducer5' className='text-decoration-none'>
+                Ejercicio-useReduce 5
+              </Link>
             </li>
           </ul>
         </nav>
@@ -79,6 +97,9 @@ function App() {
             <Route path='/comentarios' element={<Comentarios />} />
             <Route path='/reducer1' element={<Reducer1 />} />
             <Route path='/reducer2' element={<Reducer2 />} />
+            <Route path='/reducer3' element={<Reducer3 />} />
+            <Route path='/reducer4' element={<Reducer4 />} />
+            <Route path='/reducer5' element={<Reducer5 />} />
           </Routes>
         </main>
       </BrowserRouter>
