@@ -9,7 +9,13 @@ export function HookPersonalizado2() {
       <h1>Libros:</h1>
       {loading && <p>Cargando</p>}
       {error && <p>Error: {error.message}</p>}
-      {data && <pre>{JSON.stringify(data, null, 2)}</pre>}
+      {/* {data && <pre>{JSON.stringify(data, null, 2)}</pre>} */}
+      {data.map((libro, index) => (
+        <div key={index}>
+          <h4>Titulo: {libro.titulo}</h4>
+          <p>Descripcion: {libro.descripcion}</p>
+        </div>
+      ))}
     </>
   );
 }
