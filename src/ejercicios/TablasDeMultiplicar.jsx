@@ -5,6 +5,7 @@ export function TablasDeMultiplicar() {
   const [final, setFinal] = useState("");
   const [tablas, setTablas] = useState([]);
   const [error, setError] = useState("");
+  const [numeroMultiplicar, setNumeroMultiplicar] = useState("");
 
   const enviarFormulario = (e) => {
     e.preventDefault();
@@ -17,9 +18,16 @@ export function TablasDeMultiplicar() {
       for (let i = inicio; i <= final; i++) {
         let tabla = `Tabla del ${i}: `;
 
-        for (let j = 1; j <= 10; j++) {
-          tabla += `${i} x ${j} = ${i * j} | `;
+        if (numeroMultiplicar > 0) {
+          for (let j = 1; j <= numeroMultiplicar; j++) {
+            tabla += `${i} x ${j} = ${i * j} | `;
+          }
+        } else {
+          for (let j = 1; j <= 10; j++) {
+            tabla += `${i} x ${j} = ${i * j} | `;
+          }
         }
+
         console.log(tabla);
         resultado.push(tabla);
       }
@@ -27,11 +35,13 @@ export function TablasDeMultiplicar() {
       setTablas(resultado);
       setInicio("");
       setFinal("");
+      setNumeroMultiplicar("");
       setError("");
     } else {
       setTablas([]);
       setFinal("");
       setInicio("");
+      setNumeroMultiplicar("  ");
       setError("Error, los numeros introducidos no son validos");
     }
   };
@@ -50,6 +60,12 @@ export function TablasDeMultiplicar() {
           type='number'
           value={final}
           onChange={(e) => setFinal(e.target.value)}
+        />
+        <label>nº</label>
+        <input
+          type='number'
+          value={numeroMultiplicar}
+          onChange={(e) => setNumeroMultiplicar(e.target.value)}
         />
         <button type='submit'>Enviar</button>
       </form>
