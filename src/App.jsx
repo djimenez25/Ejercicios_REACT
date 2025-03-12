@@ -22,6 +22,7 @@ import { HookPersonalizado4 } from "./ejercicios/HookPersonalizado4";
 import { HookPersonalizado5 } from "./ejercicios/HookPersonalizado5";
 import { HookPersonalizado6 } from "./ejercicios/HookPersonalizado6";
 import { HookPersonalizado7 } from "./ejercicios/HookPersonalizado7";
+import { TablasDeMultiplicar } from "./ejercicios/TablasDeMultiplicar";
 
 function App() {
   return (
@@ -125,6 +126,11 @@ function App() {
                 Ejercicio-HookPersonalizado 7
               </Link>
             </li>
+            <li>
+              <Link to='/tablas' className='text-decoration-none'>
+                Tablas de Multiplicar
+              </Link>
+            </li>
           </ul>
         </nav>
 
@@ -149,6 +155,7 @@ function App() {
             <Route path='/hook5' element={<HookPersonalizado5 />} />
             <Route path='/hook6' element={<HookPersonalizado6 />} />
             <Route path='/hook7' element={<HookPersonalizado7 />} />
+            <Route path='/tablas' element={<TablasDeMultiplicar />} />
           </Routes>
         </main>
       </BrowserRouter>
