@@ -9,7 +9,12 @@ export function TablasDeMultiplicar() {
 
   const enviarFormulario = (e) => {
     e.preventDefault();
-    tablaMultiplicar();
+    if (inicio > 0 && final > 0) {
+      tablaMultiplicar();
+    } else {
+      setTablas([]);
+      setError("Debe introducir un numero mayor que 0");
+    }
   };
 
   const tablaMultiplicar = () => {
@@ -41,7 +46,7 @@ export function TablasDeMultiplicar() {
       setTablas([]);
       setFinal("");
       setInicio("");
-      setNumeroMultiplicar("  ");
+      setNumeroMultiplicar("");
       setError("Error, los numeros introducidos no son validos");
     }
   };
